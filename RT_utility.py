@@ -184,8 +184,9 @@ class Interval:
             return self.max_val
         return x
     
-    def near_zero(self, x):
-        tol = 1e-8
+    @staticmethod
+    def near_zero(self, x, fTol=1e-8):
+        tol = fTol
         return math.fabs(x) < tol
 
     @staticmethod
