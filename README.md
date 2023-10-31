@@ -16,4 +16,6 @@ The codes were rewritten and modified from https://raytracing.github.io/books/Ra
 1. Implement 'intersect()' method of the Sphere class.
 2. Implement calculations of the quad parameters.
 3. Implement 'intersect()' method of the Quad class.
+4. Render spheres using 'renderSphere()' function.
+5. Render quads using 'renderQuad()' function.
 
