@@ -15,7 +15,6 @@ class Camera:
         self.center = rtu.Vec3()
         self.intensity = rtu.Interval(0.000, 0.999)
         self.samples_per_pixel = 10
-        self.max_depth = 4
         self.vertical_fov = 90
         self.look_from = rtu.Vec3(0, 0, -1)
         self.look_at = rtu.Vec3(0, 0, 0)
@@ -63,11 +62,8 @@ class Camera:
         self.Lens = Thinlens(fDefocusAngle, fFocusDist)
 
     def write_to_film(self, widthId, heightId, cPixelColor):
-        # no scaling
-        scale = 1.0
-
         # scaling with samples_per_pixel
-        scale = 1.0
+        scale = 1.0/self.samples_per_pixel
     
         r = cPixelColor.r()*scale
         g = cPixelColor.g()*scale

@@ -185,7 +185,7 @@ class Interval:
         return x
     
     @staticmethod
-    def near_zero(self, x, fTol=1e-8):
+    def near_zero(x, fTol=1e-8):
         tol = fTol
         return math.fabs(x) < tol
 
@@ -196,3 +196,9 @@ class Interval:
     @staticmethod
     def Universe():
         return Interval(-infinity_number, +infinity_number)
+
+class Scatterinfo:
+    def __init__(self, vRay, fAttenuation) -> None:
+        self.scattered_ray = vRay
+        self.attenuation_color = fAttenuation
+
