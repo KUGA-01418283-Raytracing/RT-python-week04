@@ -3,6 +3,7 @@
 import RT_utility as rtu
 import numpy as np
 from PIL import Image as im
+import RT_pbar
 
 class Renderer():
 
@@ -14,6 +15,8 @@ class Renderer():
         pass
 
     def render(self):
+        renderbar = RT_pbar.start_animated_marker(self.camera.img_height*self.camera.img_width)
+        k = 0
         for j in range(self.camera.img_height):
             for i in range(self.camera.img_width):
 
@@ -24,6 +27,8 @@ class Renderer():
                     pixel_color = pixel_color + self.integrator.compute_scattering(generated_ray, self.scene)
 
                 self.camera.write_to_film(i, j, pixel_color)
+                renderbar.update(k)
+                k = k+1
 
 
     def write_img2png(self, strPng_filename):
